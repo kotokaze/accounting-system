@@ -1,0 +1,4 @@
+[submodule "plugins/tauri-plugin-log"]
+	path = plugins/tauri-plugin-log
+	url = git@github.com:tauri-apps/tauri-plugin-log.git
+	branch = release
