@@ -4,6 +4,7 @@
 )]
 
 use tauri_plugin_log::{fern::colors::ColoredLevelConfig, LogTarget, LoggerBuilder};
+use tauri_plugin_store::{PluginBuilder, StoreBuilder};
 
 fn main() {
   let targets = [LogTarget::LogDir, LogTarget::Stdout, LogTarget::Webview];
@@ -13,8 +14,14 @@ fn main() {
     .with_colors(colors)
     .build();
 
+  let store = PluginBuilder::default();
+  let settings = StoreBuilder::new("store.bin".parse().unwrap())
+    .default("key".to_string(), "hello world".into())
+    .build();
+
   tauri::Builder::default()
     .plugin(logger)
+    .plugin(store.store(settings).freeze().build())
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

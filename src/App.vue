@@ -1,18 +1,16 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { trace, info, error, attachConsole } from 'tauri-plugin-log-api'
+import { trace, info, error } from 'tauri-plugin-log-api'
+import { Store } from 'tauri-plugin-store'
 import HelloWorld from './components/HelloWorld.vue'
 
-// with LogTarget::Webview enabled this function will print logs to the browser console
-const detach = await attachConsole()
+trace('Loading store')
+const store = new Store('store.bin')
+store.get<string>('key').then(val => {
+  info('value:' + val)
+}).catch(() => error('value not found'))
 
-trace('Trace')
-info('Info')
-error('Error')
-
-// detach the browser console from the log stream
-detach()
 </script>
 
 <template lang="pug">

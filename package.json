@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.0-rc.2",
+    "tauri-plugin-store": "./plugins/tauri-plugin-store",
     "vue": "^3.2.25"
   },
   "devDependencies": {
