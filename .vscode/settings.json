@@ -1,4 +1,6 @@
 {
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.templateProps": true,
   "prettier.enable": true,
   "eslint.enable": true,
   "eslint.format.enable": true,
