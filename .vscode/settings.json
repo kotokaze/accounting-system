@@ -1,11 +1,17 @@
 {
-  "vetur.experimental.templateInterpolationService": true,
-  "vetur.validation.templateProps": true,
   "prettier.enable": true,
   "eslint.enable": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
+
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "editor.tabSize": 2,
+
+  "[rust]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+  },
+  "rust-analyzer.assist.allowMergingIntoGlobImports": false,
 }
